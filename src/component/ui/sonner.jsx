@@ -1,11 +1,13 @@
-import { useTheme } from "../../../src/hook/useTheme"; // or use relative path: ../../hooks/useTheme
-import { Toaster as Sonner, toast } from "sonner";
+import React from "react";
+import { Toaster as SonnerToaster, toast } from "sonner";
+import { useTheme } from "../../hook/useTheme";
 
-const Toaster = (props) => {
-  const { theme = "system" } = useTheme();
+
+export const Toaster = (props) => {
+  const { theme = "system" } = useTheme() || {};
 
   return (
-    <Sonner
+    <SonnerToaster
       theme={theme}
       className="toaster group"
       toastOptions={{
@@ -24,4 +26,5 @@ const Toaster = (props) => {
   );
 };
 
-export { Toaster, toast };
+export { toast };
+
